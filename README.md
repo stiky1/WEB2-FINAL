@@ -15,7 +15,7 @@ GIT:
                 - git push origin 'meno'
     5. "git config --global user.email 'email_na_gite'"
     6. "git config --global user.name 'username_na_gite'"
-    7. "vi ~/.bachrc"
+    7. "vi ~/.bashrc"
     8. a potom ta dat tento kod
         git_branch() {
           git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
