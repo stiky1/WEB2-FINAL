@@ -8,18 +8,19 @@ Ak nepouzivate PHP Storm tak si to najdite ako "show remote terminal" alebo tak 
 GIT:
     1. v Remote terminaly "cd public_html"
     2. "git clone https://github.com/stiky1/WEB2-FINAL.git"
-    3. "git checkout 'meno'" , ja mam "juraj" tak si dajte aj vy tak nech o tom nerozmyslam ked bude daco treba :D
+    3. cd WEB2-FINAL
+    4. "git checkout 'meno'" , ja mam "juraj" tak si dajte aj vy tak nech o tom nerozmyslam ked bude daco treba :D
             - toto vam vytvori vasu branchu u vas
             - na vytvorenie branchi na git staci ak urobit prvy push
                 - git push origin 'meno'
-    4. "git config --global user.email 'email_na_gite'"
-    5. "git config --global user.name 'username_na_gite'"
-    6. "vi ~/.bachrc"
-    7. a potom ta dat tento kod
+    5. "git config --global user.email 'email_na_gite'"
+    6. "git config --global user.name 'username_na_gite'"
+    7. "vi ~/.bachrc"
+    8. a potom ta dat tento kod
         git_branch() {
           git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
         }
-    8. pod to pridat
+    9. pod to pridat
         export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
     9. Esc -> :wq!
     10. po vypnuti vicka 
