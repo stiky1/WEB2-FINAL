@@ -1,3 +1,4 @@
 falat chuja
 
-daj mi šalatu, daj mi šalatu.... a z jakej pici ked nemam zahradu
+daj mi Å¡alatu, daj mi Å¡alatu.... a z jakej pici ked nemam zahradu
+hahah fanana
