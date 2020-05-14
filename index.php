@@ -11,7 +11,7 @@
     <title>Test Page - Fazy</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse nav-improve">
     <div class="container-fluid">
         <ul class="nav navbar-nav flexing">
             <li>
@@ -23,7 +23,10 @@
         </ul>
     </div>
 </nav>
-
+<div id = "firstDiv">
+    <label for="exampleFormControlTextarea6">Text Area for commands.</label>
+    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write commands here..."></textarea>
+</div>
 <div id = "app">
     <div class = "txt">
         Under Testing<span class = "blink">_</span>
