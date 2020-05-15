@@ -29,7 +29,7 @@
 </div>
 <div id = "app">
     <div class = "txt">
-        Pod testovaním<span class = "blink">_</span>
+        Kyvadlo<span class = "blink">_</span>
     </div>
 </div>
 </body>

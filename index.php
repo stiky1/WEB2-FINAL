@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="final_CSS.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Test Page - Fazy</title>
+    <title>Test Page - Hungarian</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse nav-improve">
@@ -24,12 +24,15 @@
     </div>
 </nav>
 <div id = "firstDiv">
-    <label for="exampleFormControlTextarea6">Text Area for commands.</label>
+    <label for="const">Set value:</label>
+    <input id="const" type="text">
+    <button>Send value</button><br><br>
+    <label for="exampleFormControlTextarea6">Set input:</label>
     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write commands here..."></textarea>
 </div>
 <div id = "app">
     <div class = "txt">
-        Under Testing<span class = "blink">_</span>
+        Pendulum<span class = "blink">_</span>
     </div>
 </div>
 </body>
