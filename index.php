@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="final_CSS.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -15,9 +14,6 @@
 <nav class="navbar navbar-inverse nav-improve">
     <div class="container-fluid">
         <ul class="nav navbar-nav flexing">
-            <li>
-                <a href="skLang.php"><i class="fas fa-cloud-sun"></i><br>Slovak Language</a>
-            </li>
             <li>
                 <a href="index.php"><i class="fas fa-map-marked-alt"></i><br>English Language</a>
             </li>
@@ -45,7 +41,7 @@
     <div class = "txt">
         <?php
         $new = $_POST["value"];
-        $cmd = "octave -q --no-window-system --eval '[t,y]=kyvadlo($new)'";
+        $cmd = "octave -q --no-window-system --eval '[t,y]=pendulum($new)'";
         exec($cmd,$op);
 
         unset($op[0], $op[1]);
@@ -83,14 +79,14 @@
         unset($angle[$key]);
         ?>
         <div id = "animationId">
-            <object data="svg/ellipse.svg" type="image/svg+xml">
-                <img src="svg/ellipse.svg" alt = "Ellipse">
+            <object data="pendulum_svg/ellipse.svg" type="image/svg+xml">
+                <img src="pendulum_svg/ellipse.svg" alt = "Ellipse">
             </object>
-            <object data="svg/line1.svg" type="image/svg+xml">
-                <img src="svg/line1.svg" alt = "Line 1">
+            <object data="pendulum_svg/line1.svg" type="image/svg+xml">
+                <img src="pendulum_svg/line1.svg" alt = "Line 1">
             </object>
-            <object data="svg/line2.svg" type="image/svg+xml">
-                <img src="svg/line2.svg" alt = "Line 2">
+            <object data="pendulum_svg/line2.svg" type="image/svg+xml">
+                <img src="pendulum_svg/line2.svg" alt = "Line 2">
             </object>
         </div>
         <script>
