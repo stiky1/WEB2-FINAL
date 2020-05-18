@@ -1,4 +1,4 @@
-function [t,y] = kyvadlo()
+function [t,y] = kyvadlo(new)
     M = .5;
     m = 0.2;
     b = 0.1;
@@ -17,7 +17,7 @@ function [t,y] = kyvadlo()
     sys = ss(Ac,B*N,C,D);
 
     t = 0:0.05:10;
-    r =0.2;
+    r =new;
     initPozicia=0;
     initUhol=0;
     [y,t,x]=lsim(sys,r*ones(size(t)),t,[initPozicia;0;initUhol;0]);

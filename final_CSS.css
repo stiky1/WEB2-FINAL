@@ -52,12 +52,6 @@ html,body{
     100% {opacity: 1}
 }
 
-.blink {
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-}
-
 .shadow-textarea textarea.form-control::placeholder {
     font-weight: 300;
 }
@@ -68,4 +62,10 @@ html,body{
 #firstDiv {
     background-color: black;
     color: #9d9d9d;
+}
+
+#svg {
+    border: white solid 5px;
+    padding: 15px;
+    height: 100%;
 }

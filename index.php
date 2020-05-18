@@ -26,34 +26,26 @@
 </nav>
 
 <div id = "firstDiv"><br>
-    <label for="const">Set new r position:</label>
-    <input id="const" type="text">
-    <button>Send value</button><br><br><br>
-    <label for="exampleFormControlTextarea6">Select option:</label><br><br>
+    <form method="post">
+        <label for="const">Set new r position:</label>
+        <input id="const" type="number" name="value">
+        <input type="submit">
+    </form><br><br><br>
+    <label for="exampleFormControlTextarea6">Select what to view:</label><br><br>
     <label>
-        <input id = "graph" type="checkbox" alt="Graph" onclick="showMe()">
+        <input id = "graph" type="checkbox" alt="Graph" onclick="show()">
     </label> Graph
     <label>
-        <input id = "animation" type="checkbox" alt="Animation">
+        <input id = "animation" type="checkbox" alt="Animation" onclick="show()">
     </label> Animation
-    <label>
-        <input id = "animation" type="checkbox" alt="Graph">
-    </label> Graph & Animation
 </div>
 <div id = "app">
-    <div id = "myDiv"></div>
-    <script>
-        function showMe() {
-            if(document.getElementById("graph").checked) {
-                document.getElementById("myDiv").style.display = "none";
-            } else {
-                document.getElementById("myDiv").style.display = "block";
-            }
-        }
-    </script>
+    <div id ="graphId"></div>
+    <script src="final_JS.js"></script>
     <div class = "txt">
         <?php
-        $cmd = "octave -q --no-window-system --eval '[t,y]=kyvadlo()'";
+        $new = $_POST["value"];
+        $cmd = "octave -q --no-window-system --eval '[t,y]=kyvadlo($new)'";
         exec($cmd,$op);
 
         unset($op[0], $op[1]);
@@ -68,6 +60,7 @@
         $foundY = false;
         $t = array();
         $y = array();
+        $angle = array();
 
         foreach ($op as $cell){
             if($cell === 't =' || $foundT){
@@ -78,29 +71,48 @@
                 $foundT = false;
                 $foundY = true;
                 array_push($y,round($cell,5));
+                $angleData = explode(" ", $cell);
+                array_push($angle, end($angleData));
             }
         }
         $key = array_search("t =",$t);
         unset($t[$key]);
         $key = array_search("y =",$y);
         unset($y[$key]);
+        $key = array_search("=",$angle);
+        unset($angle[$key]);
         ?>
-        <div>
-            <embed src="svg/Ellipse%201.svg">
+        <div id = "animationId">
+            <object data="svg/ellipse.svg" type="image/svg+xml">
+                <img src="svg/ellipse.svg" alt = "Ellipse">
+            </object>
+            <object data="svg/line1.svg" type="image/svg+xml">
+                <img src="svg/line1.svg" alt = "Line 1">
+            </object>
+            <object data="svg/line2.svg" type="image/svg+xml">
+                <img src="svg/line2.svg" alt = "Line 2">
+            </object>
         </div>
         <script>
-            var xArray= [<?php echo '"'.implode('","', $t).'"' ?>];
-            var yArray= [<?php echo '"'.implode('","', $y).'"' ?>];
+            var time= [<?php echo '"'.implode('","', $t).'"' ?>];
+            var y= [<?php echo '"'.implode('","', $y).'"' ?>];
+            var angle= [<?php echo '"'.implode('","', $angle).'"' ?>];
 
             var trace1 = {
-              x: xArray,
-              y: yArray,
+              x: time,
+              y: y,
               type: 'scatter'
             };
 
-            var data = [trace1];
+            var trace2 = {
+                x: time,
+                y: angle,
+                type: 'scatter'
+            };
 
-            Plotly.newPlot('myDiv', data);
+            var data = [trace1,trace2];
+
+            Plotly.newPlot('graphId', data);
         </script>
     </div>
 </div>

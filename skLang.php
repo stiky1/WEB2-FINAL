@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="final_CSS.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Testovacia Stránka - Fazy</title>
+    <title>Testovacia Stránka - SK</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse nav-improve">
