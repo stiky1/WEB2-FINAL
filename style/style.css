@@ -1,0 +1,9 @@
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.flags {
+    display: flex;
+}
+.flag {
+    width: 30px;
+    height: 20px;
+    align-items: center;
+}
