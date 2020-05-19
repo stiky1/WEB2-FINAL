@@ -19,4 +19,7 @@ function show() {
         document.getElementById("animationId").style.display = "none";
         document.getElementById("graphId").style.display = "none";
     }
+    else {
+        console.log("okokt");
+    }
 }
