@@ -1,6 +1,6 @@
 <?php include "../config.php" ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>SSSB - FINAL</title>
         <meta charset="UTF-8">
@@ -16,7 +16,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+        <link rel="shortcut icon" type="image/png" href="../fav/Z.jpg"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     </head>
     <body class="w3-light-grey">
     <!-- Top container -->
@@ -30,8 +31,8 @@
                 <span><?php echo $lang['welcome']?><span> <i class="	fa fa-child"></i><br><br>
                               <div class="flags">
                                     <p><strong><?php echo $lang['lang']?></strong></p>
-                                    <a href="pendulum.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
-                                    <a href="pendulum.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                    <a href="pendulum.php?lang=svk" class="w3-bar-item w3-button"><img alt = "SVK"class="flag" src='../pics/svk.png'></a>
+                                    <a href="pendulum.php?lang=eng" class="w3-bar-item w3-button"><img alt = "ENG" class="flag" src="../pics/eng.png"></a>
                               </div>
             </div>
         </div>
@@ -49,7 +50,6 @@
         </div>
     </nav>
 
-
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -63,11 +63,9 @@
 
         <div class="w3-row-padding w3-margin-bottom">
             <div id = "firstDiv"><br>
-                <form method="post">
-                    <label for="const">Set new r position:</label>
-                    <input id="const" type="number" name="value">
-                    <input type="submit">
-                </form><br><br><br>
+                <label for="const"></label>
+                <input id="const" type="number" name="value">
+                <button type="button" id="btn">Send r value</button><br><br><br>
                 <label for="exampleFormControlTextarea6">Select what to view:</label><br><br>
                 <label>
                     <input id = "graph" type="checkbox" alt="Graph" onclick="show()">
@@ -75,59 +73,62 @@
                 <label>
                     <input id = "animation" type="checkbox" alt="Animation" onclick="show()">
                 </label> Animation
+                <script>
+                    $(document).ready(function(){
+                        $("#btn").click(function(){
+                            var str = $("#const").val();
+                            alert(str);
+                            // $.get("https://147.175.121.210:4500/WEB2-FINAL/subpages/pendulum.php&value="+str).always(function (data) {
+                            //     console.log(data);
+                        });
+                    });
+                </script>
             </div>
             <div id = "app">
                 <div id ="graphId"></div>
                 <script src="../script/final_JS.js"></script>
                 <div class = "txt">
                     <?php
-                    $new = $_POST["value"];
-                    $cmd = "octave -q --no-window-system --eval '[t,y]=pendulum($new)'";
-                    exec($cmd,$op);
+                    $cmd = "octave -q --no-window-system --eval 'pendulum'";
+                    exec($cmd,$op,$rv);
 
                     unset($op[0], $op[1]);
-                    $i = 0;
+                    $key = array_search("",$op);
+                    unset($op[$key]);
 
-                    for (;$i <= sizeof($op);$i++){
-                        $key = array_search("",$op);
-                        unset($op[$key]);
-                    }
-
-                    $foundT = false;
-                    $foundY = false;
                     $t = array();
                     $y = array();
                     $angle = array();
 
                     foreach ($op as $cell){
-                        if($cell === 't =' || $foundT){
-                            $foundT = true;
-                            array_push($t,round($cell,2));
+                        $cell = preg_replace('/\s+/', ' ', $cell);
+                        $angleData = explode(" ", $cell);
+
+                        array_push($t, $angleData[1]);
+                        array_push($y, $angleData[2]);
+                        array_push($angle, end($angleData));
                         }
-                        if ($cell === 'y =' || $foundY){
-                            $foundT = false;
-                            $foundY = true;
-                            array_push($y,round($cell,5));
-                            $angleData = explode(" ", $cell);
-                            array_push($angle, end($angleData));
-                        }
-                    }
-                    $key = array_search("t =",$t);
-                    unset($t[$key]);
-                    $key = array_search("y =",$y);
-                    unset($y[$key]);
-                    $key = array_search("=",$angle);
-                    unset($angle[$key]);
+
+                    $data["t"] = $t;
+                    $data["y"] = $y;
+                    $data["angle"] = $angle;
+
+                    $testVar = json_encode($data,JSON_PRETTY_PRINT);
+                    $testVar = json_decode($testVar, true);
+
+//                    echo "<pre>";
+//                    var_dump($testVar['t']);
+//                    echo "</pre>";
                     ?>
                     <div id = "animationId">
-                        <object data="pendulum_svg/ellipse.svg" type="image/svg+xml">
-                            <img src="pendulum_svg/ellipse.svg" alt = "Ellipse">
+                        <object data="../pendulum_svg/ellipse.svg" type="image/svg+xml">
+                            <img src="../pendulum_svg/ellipse.svg" alt = "Ellipse">
                         </object>
-                        <object data="pendulum_svg/line1.svg" type="image/svg+xml">
-                            <img src="pendulum_svg/line1.svg" alt = "Line 1">
+                        <object data="../pendulum_svg/line1.svg" type="image/svg+xml">
+                            <img src="../pendulum_svg/line1.svg" alt = "Line 1">
                         </object>
-                        <object data="pendulum_svg/line2.svg" type="image/svg+xml">
-                            <img src="pendulum_svg/line2.svg" alt = "Line 2">
+                        <object data="../pendulum_svg/line2.svg" type="image/svg+xml">
+                            <img src="../pendulum_svg/line2.svg" alt = "Line 2">
                         </object>
                     </div>
                     <script>
@@ -138,13 +139,15 @@
                         var trace1 = {
                             x: time,
                             y: y,
-                            type: 'scatter'
+                            type: 'scatter',
+                            name: 'Position'
                         };
 
                         var trace2 = {
                             x: time,
                             y: angle,
-                            type: 'scatter'
+                            type: 'scatter',
+                            name: 'Angle'
                         };
 
                         var data = [trace1,trace2];
@@ -155,13 +158,10 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
             <p>&nbsp;&nbsp; © Szitas, Baca, Szilvasiova, Stekla  &nbsp; 2020</p>
         </footer>
     </div>
-
-
-    <script src="script/slideScript.js"></script>
+    <script src="../script/slideScript.js"></script>
     </body>
 </html>
