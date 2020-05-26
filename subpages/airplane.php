@@ -4,11 +4,13 @@
     <head>
         <title>SSSB - FINAL</title>
         <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../pics/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../style/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
     <body class="w3-light-grey">
     <!-- Top container -->
@@ -34,6 +36,7 @@
         <div class="w3-bar-block">
             <a href="../index.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home"></i>   <?php echo $lang['home']?></a>
             <a href="api.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-gears"></i>  API</a>
+            <a href="console.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-laptop"></i>   <?php echo $lang['console']?></a>
             <a href="pendulum.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows-v"></i>   <?php echo $lang['pendulum']?></a>
             <a href="ball.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-futbol-o"></i>  <?php echo $lang['ball']?></a>
             <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
@@ -59,11 +62,12 @@
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
-            <p>&nbsp;&nbsp; © Szitas, Baca, Szilvasiova, Stekla  &nbsp; 2020</p>
+            <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
         </footer>
     </div>
 
 
-    <script src="script/slideScript.js"></script>
+    <script src="../script/slideScript.js"></script>
+    <script src="../script/script.js"></script>
     </body>
 </html>

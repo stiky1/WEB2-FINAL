@@ -1,4 +1,5 @@
-function [t,y] = kyvadlo(new)
+pkg load control
+
     M = .5;
     m = 0.2;
     b = 0.1;
@@ -17,9 +18,8 @@ function [t,y] = kyvadlo(new)
     sys = ss(Ac,B*N,C,D);
 
     t = 0:0.05:10;
-    r =new;
+    r = 0.2;
     initPozicia=0;
     initUhol=0;
     [y,t,x]=lsim(sys,r*ones(size(t)),t,[initPozicia;0;initUhol;0]);
     [t,y]
-endfunction

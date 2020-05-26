@@ -7,3 +7,28 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     height: 20px;
     align-items: center;
 }
+
+textarea
+{
+    font-size: 1.25vw;
+}
+
+#result
+{
+    margin: 0vw 0vw 0vw 1vw;
+    border-width: 0.05vw;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    width: 20vw;
+    height: 15.3vw;
+    text-align: center;
+    font-size: 1.25vw;
+    background: white;
+}
+
+.consoleContainer, .downloadBtn
+{
+    display: flex;
+}
+
+

@@ -11,3 +11,4 @@
     }
 
     require_once "languages/".$_SESSION['lang'].".php";
+    

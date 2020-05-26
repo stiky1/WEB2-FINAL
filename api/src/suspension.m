@@ -1,3 +1,5 @@
+pkg load control
+
 m1 = 2500; m2 = 320;
 k1 = 80000; k2 = 500000;
 b1 = 350; b2 = 15020;
@@ -17,14 +19,7 @@ initX1d=0;
 initX2=0;
 initX2d=0;
 [y,t,x]=lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
-plot(t,y)
-
 
 r = -0.1;
 [y,t,x]=lsim(sys*[0;1],r*ones(size(t)),t,x(size(x,1),:));
-plot(t,y)
-
-%odporucam si pozriet aj tento graf. Takto to vyzera, ked tam nie je pouzity regulator pre tlmic
-sys0 = ss(A,B,C,D);
-[y0,t,x0]=lsim(sys0*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d]);
-plot(t,y0,t,y)
+[t,y]
