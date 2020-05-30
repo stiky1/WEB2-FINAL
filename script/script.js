@@ -19,7 +19,7 @@ $(document).ready(function() {
             'http://147.175.121.210:8177/WEB2-FINAL/api/',
             'GET',
             'cmd',
-            command);
+            JSON.stringify({ex:command}));
         document.getElementById("result").innerHTML = apiResponse;
         apiResponse = null;
     });
