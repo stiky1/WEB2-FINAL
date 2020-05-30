@@ -12,6 +12,7 @@
         "submit" => "Submit",
         "const" => "Set r value:",
         "console" => "Console",
-        "command" => "Type expessions here and press Submit",
+        "command" => "Type expession here and press Submit",
         "export" => "Export file with commands",
+        "stats" => "Statistics of pages attendance",
     );

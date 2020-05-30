@@ -14,4 +14,5 @@
         "console" => "Konzola",
         "command" => "Sem zadajte príkaz a stlačte Potvrdiť",
         "export" => "Export dokumentu s príkazmi",
+        "stats" => "Štatistika náštevnosti stránok",
     );

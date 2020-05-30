@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="style/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
-    
+
     <body class="w3-light-grey">
         <!-- Top container -->
         <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
@@ -22,12 +22,12 @@
         <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
             <div class="w3-container w3-row">
                 <div class="w3-col s8 w3-bar">
-                    <span><?php echo $lang['welcome']?><span> <i class="fa fa-child"></i><br><br>
-                    <div class="flags">
-                        <p><strong><?php echo $lang['lang']?></strong></p>
-                        <a href=".?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='pics/svk.png'></a>
-                        <a href=".?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="pics/eng.png"></a>
-                    </div>
+                            <span><?php echo $lang['welcome']?><span> <i class="fa fa-child"></i><br><br>
+                            <div class="flags">
+                                <p><strong><?php echo $lang['lang']?></strong></p>
+                                <a href="index.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='pics/svk.png'></a>
+                                <a href="index.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="pics/eng.png"></a>
+                            </div>
                 </div>
             </div>
             <hr>
@@ -40,7 +40,7 @@
                 <a href="subpages/console.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-laptop"></i>   <?php echo $lang['console']?></a>
                 <a href="subpages/pendulum.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows-v"></i>   <?php echo $lang['pendulum']?></a>
                 <a href="subpages/ball.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-futbol-o"></i>  <?php echo $lang['ball']?></a>
-                <a href="subpages/suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
+                <a href="subpages/suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="subpages/airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
         </nav>
@@ -88,6 +88,31 @@
                         <h4>Lukáš Bača</h4>
                     </div>
                     <div></div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="w3-container" id="stat_div">
+                <h4> <i class="fa fa-bar-chart"></i>  <?php echo $lang['stats'] ?></h4>
+                <p><?php echo $lang['pendulum']?></p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-center w3-padding w3-red" id="stat_div_pendulum"></div>
+                </div>
+
+                <p><?php echo $lang['airplane']?></p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-center w3-padding w3-blue" id="stat_div_airplane"></div>
+                </div>
+
+                <p><?php echo $lang['ball']?></p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-center w3-padding w3-teal" id="stat_div_ball"></div>
+                </div>
+
+                <p><?php echo $lang['car']?></p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-center w3-padding w3-orange" id="stat_div_car"></div>
                 </div>
             </div>
 
