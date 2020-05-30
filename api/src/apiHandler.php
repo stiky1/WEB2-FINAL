@@ -15,7 +15,7 @@ class API_Handler {
                 return $this->ball($functionParams);
             } if ($functionName == 'pendulum') {
                 return $this->pendulum($functionParams);
-            } if ($functionName == 'suspensionSys') {
+            } if ($functionName == 'suspension') {
                 return $this->suspensionSys($functionParams);
             } if($functionName == 'cmd') {
                 return $this->cmd($functionParams);
@@ -30,34 +30,40 @@ class API_Handler {
     }
 
     private function airPlane($param) {
-        $cmd = "octave -q --no-window-system --eval 'airplane'";
+        $param = "r=".$param['r'];
+        $cmd = 'octave -q --no-window-system --eval "'.$param.'; airplane"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
+        //return json_encode($output,JSON_PRETTY_PRINT);
     }
     private function ball($param) {
-        $cmd = "octave -q --no-window-system --eval 'ball'";
+        $param = "r=".$param;
+        $cmd = 'octave -q --no-window-system --eval "'.$param.'; ball"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
     }
     private function pendulum($param) {
-        $cmd = "octave -q --no-window-system --eval 'pendulum'";
+        $param = "r=".$param;
+        $cmd = 'octave -q --no-window-system --eval "'.$param.'; pendulum"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
     }
     private function suspensionSys($param) {
-        $cmd = "octave -q --no-window-system --eval 'suspension'";
+        $param = "r=".$param;
+        $cmd = 'octave -q --no-window-system --eval "'.$param.'; suspension"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
     }
-    private function cmd($example) {
+    private function cmd($param) {
+        $example = $param['ex'];
         $cmd = "octave -q --no-window-system --eval '$example'";
         exec($cmd, $op, $rv);
         $this->createLog($rv,$example);
@@ -75,11 +81,15 @@ class API_Handler {
             $angleData = explode(" ", $cell);
             array_push($t, $angleData[1]);
             array_push($y, $angleData[2]);
-            array_push($angle, end($angleData));
+            if($angleData[3]){
+                array_push($angle, $angleData[3]);
+            }
         }
         $data["t"] = $t;
         $data["y"] = $y;
         $data["angle"] = $angle;
+
+        //$data = array($t, $y, $angle);
 
         return json_encode($data, JSON_PRETTY_PRINT);
     }

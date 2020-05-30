@@ -64,7 +64,7 @@
                 <div class = "consoleContainer"><br>
                     <div class="cmd">
                         <textarea id="command" name="command" rows="8" cols="50" placeholder="<?php echo $lang['command']?>"></textarea><br>
-                        <button id="commandSubmit" type="submit" name="commandSubmit" class="btn"><?php echo $lang['submit']?></button>
+                        <button id="commandSubmit" type="submit" name="commandSubmit" class="btn buttons"><?php echo $lang['submit']?></button>
                     </div>
 
                     <div id="result"></div>
@@ -72,7 +72,7 @@
 
                 <div class="dataExport">
                     <header class="w3-container" style="padding-top:22px">
-                        <h3><b><i class="fa fa-download" aria-hidden="true"></i> <?php echo $lang['export']?></b></h3>
+                        <h4><b><i class="fa fa-download" aria-hidden="true"></i> <?php echo $lang['export']?></b></h4>
                     </header>
 
                     <div class="downloadBtn">

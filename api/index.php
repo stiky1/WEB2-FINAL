@@ -11,7 +11,9 @@
         if (isset(getallheaders()['auth-key']) && getallheaders()['auth-key'] == CONST_INCLUDE_KEY) {
             $functionName = getallheaders()['function'];
             $functionParam = getallheaders()['functionParam'];
-
+            if (isset($functionParam)) {
+                $functionParam = json_decode($functionParam, true);
+            }
             $apiHandler = new API_Handler();
             $response = $apiHandler->execCommand($functionName, $functionParam);
             echo $response;
