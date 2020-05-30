@@ -15,4 +15,11 @@
         "command" => "Sem zadajte príkaz a stlačte Potvrdiť",
         "export" => "Export dokumentu s príkazmi",
         "stats" => "Štatistika náštevnosti stránok",
+        "suspension" => "Tlmic eng",
+        "airplane_graph_tr1" => "• Náklon lietadla",
+        "airplane_graph_tr2" => "• Náklon klapky",
+        "suspension_graph_tr1" => "• Tilt of the flap",
+        "suspension_graph_tr2" => "• Tilt of the flap",
+        "tooltip" => "Pri zmene jazyka bude vaša práca stratená, takzvane v piči.",
+        "suspension_input_tooltip" => "  Ne ze zajebes metrovy obrubnik, abo velku fugu.  ",
     );

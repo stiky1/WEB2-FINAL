@@ -43,6 +43,13 @@
                 <a href="subpages/suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="subpages/airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
         <!-- Overlay effect when opening sidebar on small screens -->
@@ -117,14 +124,7 @@
             </div>
 
             <div id="statResult"></div>
-
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-            </footer>
         </div>
-
-
 
         <script src="script/slideScript.js"></script>
         <script src="script/script.js"></script>

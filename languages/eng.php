@@ -15,4 +15,10 @@
         "command" => "Type expession here and press Submit",
         "export" => "Export file with commands",
         "stats" => "Statistics of pages attendance",
+        "airplane_graph_tr1" => "• Tilt of the plane",
+        "airplane_graph_tr2" => "• Tilt of the flap",
+        "suspension_graph_tr1" => "• Tilt of the flap",
+        "suspension_graph_tr2" => "• Tilt of the flap",
+        "tooltip" => "You dojebat this system as much as it was possible.",
+        "suspension_input_tooltip" => "  Type values between -0.3 and 0.3 bo ujebes napravu.  ",
     );

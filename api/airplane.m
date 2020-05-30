@@ -16,7 +16,7 @@ initAlfa=0;
 initQ=0;
 initTheta=0;
 [y,t,x]=lsim(sys,r*ones(size(t)),t,[initAlfa;initQ;initTheta]);
-[t,y]
+[t,x(:,3),r*ones(size(t))*N-x*K']
 
 
 

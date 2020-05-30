@@ -28,6 +28,7 @@
                                         <p><strong><?php echo $lang['lang']?></strong></p>
                                         <a href="suspensionsys.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
                                         <a href="suspensionsys.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                        <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
                                     </div>
                 </div>
             </div>
@@ -44,6 +45,13 @@
                 <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
         <!-- Overlay effect when opening sidebar on small screens -->
@@ -71,13 +79,11 @@
                     </div>
                     <br>
                     <div id="form_div">
-                        <form method="post">
-                            <label for="const"><?php echo $lang['const']?>
-                            </label>
-                            <input id="const" type="number" name="value">
-                            <button type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
-                        </form>
-                        <button id="kok">kokondero</button>
+                        <label for="const"><?php echo $lang['const']?></label>
+                        <input id="const" type="number" name="value">
+                        <button id="suspension_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
+                        <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['suspension_input_tooltip']?></span>
+
                     </div>
                     <br><br>
                 </div>
@@ -85,33 +91,7 @@
                 <div id="model_div"></div>
 
                 <div id="graph_div"></div>
-
-                <script>
-                    var trace1 =
-                        {
-                            x: [1, 2, 3, 4],
-                            y: [10, 15, 13, 17],
-                            type: 'scatter'
-                        };
-
-                    var trace2 =
-                        {
-                            x: [1, 2, 3, 4],
-                            y: [16, 5, 11, 9],
-                            type: 'scatter'
-                        };
-
-                    var data = [trace1,trace2];
-
-                    Plotly.newPlot('graph_div', data);
-                </script>
             </div>
-
-
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-            </footer>
         </div>
 
         <script src="../script/slideScript.js"></script>

@@ -5,22 +5,22 @@ if ((!defined('CONST_INCLUDE_KEY')) || (CONST_INCLUDE_KEY !== 'd4e2ad09-b1c3-4d7
 }
 
 class API_Handler {
-    public function execCommand($functionName,$functionParams) {
+    public function execCommand($functionName, $functionParam) {
         //return json_encode($functionParams, JSON_PRETTY_PRINT);
 
-        if(isset($functionName) || $functionName != '' && isset($functionParams)) {
+        if(isset($functionName) || $functionName != '' && isset($functionParam)) {
             if($functionName == 'airplane') {
-                return $this->airPlane($functionParams);
+                return $this->airPlane($this->decode($functionParam));
             } if ($functionName == 'ball') {
-                return $this->ball($functionParams);
+                return $this->ball($this->decode($functionParam));
             } if ($functionName == 'pendulum') {
-                return $this->pendulum($functionParams);
+                return $this->pendulum($this->decode($functionParam));
             } if ($functionName == 'suspension') {
-                return $this->suspensionSys($functionParams);
+                return $this->suspensionSys($this->decode($functionParam));
             } if($functionName == 'cmd') {
-                return $this->cmd($functionParams);
+                return $this->cmd($functionParam);
             } if($functionName == 'incStat') {
-                return $this->incrementStats($functionParams);
+                return $this->incrementStats($functionParam);
             } if($functionName == 'getStat') {
                 return $this->getStats();
             } if($functionName == 'getLogs') {
@@ -29,6 +29,12 @@ class API_Handler {
         }
     }
 
+    function decode($functionParam) {
+        if (isset($functionParam)) {
+            $functionParam = json_decode($functionParam, true);
+            return $functionParam;
+        }
+    }
     private function airPlane($param) {
         $param = "r=".$param['r'];
         $cmd = 'octave -q --no-window-system --eval "'.$param.'; airplane"';
@@ -39,7 +45,7 @@ class API_Handler {
         //return json_encode($output,JSON_PRETTY_PRINT);
     }
     private function ball($param) {
-        $param = "r=".$param;
+        $param = "r=".$param['r'];
         $cmd = 'octave -q --no-window-system --eval "'.$param.'; ball"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
@@ -47,7 +53,7 @@ class API_Handler {
         return $this->parseData($op);
     }
     private function pendulum($param) {
-        $param = "r=".$param;
+        $param = "r=".$param['r'];
         $cmd = 'octave -q --no-window-system --eval "'.$param.'; pendulum"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
@@ -55,15 +61,14 @@ class API_Handler {
         return $this->parseData($op);
     }
     private function suspensionSys($param) {
-        $param = "r=".$param;
+        $param = "r=".$param['r'];
         $cmd = 'octave -q --no-window-system --eval "'.$param.'; suspension"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
     }
-    private function cmd($param) {
-        $example = $param['ex'];
+    private function cmd($example) {
         $cmd = "octave -q --no-window-system --eval '$example'";
         exec($cmd, $op, $rv);
         $this->createLog($rv,$example);
@@ -72,24 +77,22 @@ class API_Handler {
     }
 
     private function parseData($op) {
-        $t = array();
-        $y = array();
-        $angle = array();
+        $time = array();
+        $data1 = array();
+        $data2 = array();
 
         foreach ($op as $cell) {
             $cell = preg_replace('/\s+/', ' ', $cell);
             $angleData = explode(" ", $cell);
-            array_push($t, $angleData[1]);
-            array_push($y, $angleData[2]);
+            array_push($time, $angleData[1]);
+            array_push($data1, $angleData[2]);
             if($angleData[3]){
-                array_push($angle, $angleData[3]);
+                array_push($data2, $angleData[3]);
             }
         }
-        $data["t"] = $t;
-        $data["y"] = $y;
-        $data["angle"] = $angle;
-
-        //$data = array($t, $y, $angle);
+        $data["time"] = $time;
+        $data["data1"] = $data1;
+        $data["data2"] = $data2;
 
         return json_encode($data, JSON_PRETTY_PRINT);
     }
@@ -136,14 +139,5 @@ class API_Handler {
         $sql = "INSERT INTO logs (command, commandTime, execution, executeInfo)
                 VALUES ('$command', '$commandTime','$response','$info')";
         $connect->query($sql);
-    }
-
-    private function getLogs() {
-        include './config.php';
-        $sql = "SELECT * FROM logs";
-        $stm = $connect->query($sql);
-        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-        return json_encode($result, JSON_PRETTY_PRINT);
-        //return json_encode($result, JSON_PRETTY_PRINT);
     }
 }

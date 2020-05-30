@@ -28,6 +28,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .fa-gears {
     color:  darkslategrey;
 }
+#form_div {
+    display: flex;
+}
 #form_div input[type=number] {
     width: 10%;
     box-sizing: border-box;
@@ -41,9 +44,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 }
 #form_div label {
     font-size: 22px;
-    margin-left: 10px;
+    margin: 10px;
 }
 #form_div button {
+    margin-left: 10px;
     padding: 11.5px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -54,12 +58,41 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 #form_div button:hover {
     background-color: gold;
 }
+.flags .tooltiptext {
+    visibility: hidden;
+    background-color: rgba(204, 204, 204, 0.4);
+    border: 1px solid #ccc;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    margin-top: 1.7vw;
+}
+.input_tooltiptext {
+    display: none;
+    background-color: rgba(204, 204, 204, 0.4);
+    border: 1px solid #ccc;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    z-index: 1;
+    margin-left: 0.5vw;
+}
+
+.flags:hover .tooltiptext {
+    visibility: visible;
+}
 textarea
 {
     font-size: 1.25vw;
 }
 
-#result
+#console_result
 {
     margin: 0vw 0vw 0vw 1vw;
     border-width: 0.05vw;
@@ -77,7 +110,9 @@ textarea
 }
 
 #model_div {
-    width: 70%;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 3%;
     height: auto;
     background-color: white;
 }
@@ -87,9 +122,23 @@ textarea
     margin-left: 12.5%;
 }
 #graph_div {
-    width: 70%;
+    width: 60%;
     height: auto;
-    margin-top: 3%;
+    margin: 0 0 3% 20%;
+}
+#graph_info_div {
+    width: 20%;
+    margin-left: 67%;
+    background-color: #f1f1f1;
+    font-size: 0.7vw;
+    display: flex;
+}
+#tr1 {
+    color: #ff7f0e;
+}
+#tr2 {
+    margin-left: 5%;
+    color: #1f77b4;
 }
 #stat_div {
     width: 70%;
@@ -102,11 +151,14 @@ h3 {
     background-image: -webkit-linear-gradient(0deg, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
     background-image: -moz-linear-gradient(0deg, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
     background-image: linear-gradient(to right, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
-    -webkit-background-size: 11% 3px;
-    -moz-background-size: 11% 3px;
-    background-size: 11% 3px;
+    -webkit-background-size: 20% 3px;
+    -moz-background-size: 20% 3px;
+    background-size: 20% 3px;
     background-repeat: no-repeat;
     background-position-y: bottom;
+}
+h3 {
+    font-size: 1.4vw;
 }
 
 #checkbox_div {
@@ -207,4 +259,27 @@ h3 {
 
 h4{
     font-weight: bolder;
+}
+
+footer
+{
+    position:fixed;
+    left: 0vw;
+    bottom: 0vw;
+    margin-bottom: 0;
+    height: 2vw;
+    width: 100%;
+    background: black;
+    font-size: 16px;
+}
+
+.right
+{
+    float: right;
+    margin-right: 10px;
+    color: white;
+}
+
+.right p{
+    margin-top: 8px;
 }

@@ -42,6 +42,13 @@
                 <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
 
@@ -59,11 +66,6 @@
             <div class="w3-row-padding w3-margin-bottom">
 
             </div>
-
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-            </footer>
         </div>
         <script src="../script/slideScript.js"></script>
     </body>

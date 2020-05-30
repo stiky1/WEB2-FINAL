@@ -24,9 +24,10 @@
                 <div class="w3-col s8 w3-bar">
                         <span><?php echo $lang['welcome']?><span> <i class="	fa fa-child"></i><br><br>
                                   <div class="flags">
-                                        <p><strong><?php echo $lang['lang']?></strong></p>
-                                        <a href="ball.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
-                                        <a href="ball.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                      <p><strong><?php echo $lang['lang']?></strong></p>
+                                      <a href="ball.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
+                                      <a href="ball.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                      <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
                                   </div>
                 </div>
             </div>
@@ -43,59 +44,57 @@
                 <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
 
         <!-- Overlay effect when opening sidebar on small screens -->
         <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-        <!-- !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+            <!-- !PAGE CONTENT! -->
+            <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-            <!-- Header -->
-            <header class="w3-container" style="padding-top:22px">
-                <h3><b><i class="fa fa-futbol-o"></i> <?php echo $lang['ball']?></b></h3>
-            </header>
+                <!-- Header -->
+                <header class="w3-container" style="padding-top:22px">
+                    <h3><b><i class="fa fa-futbol-o"></i> <?php echo $lang['ball']?></b></h3>
+                </header>
 
-            <div class="w3-row-padding w3-margin-bottom">
-                <br>
-                <div>
-                    <div id="checkbox_div">
-                        <label class="container"><?php echo $lang['animation']?>
-                            <input type="checkbox" checked="checked" id="model_checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container"><?php echo $lang['graph']?>
-                            <input type="checkbox" checked="checked" id="graph_checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
+                <div class="w3-row-padding w3-margin-bottom">
                     <br>
-                    <div id="form_div">
-                        <form method="post">
-                            <label for="const"><?php echo $lang['const']?>
+                    <div>
+                        <div id="checkbox_div">
+                            <label class="container"><?php echo $lang['animation']?>
+                                <input type="checkbox" checked="checked" id="model_checkbox">
+                                <span class="checkmark"></span>
                             </label>
+                            <label class="container"><?php echo $lang['graph']?>
+                                <input type="checkbox" checked="checked" id="graph_checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <br>
+                        <div id="form_div">
+                            <label for="const"><?php echo $lang['const']?></label>
                             <input id="const" type="number" name="value">
-                            <button type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
-                        </form>
+                            <button id="ball_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
+                        </div>
+                        <br><br>
                     </div>
-                    <br><br>
                 </div>
+
+                <div id="model_div">
+                </div>
+
+                <div id="graph_div"></div>
             </div>
-
-            <div id="model_div">
-            </div>
-
-            <div id="graph_div"></div>
         </div>
-
-        <!-- Footer -->
-        <footer class="w3-container w3-padding-16 w3-light-grey">
-            <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-        </footer>
-        </div>
-
-
+        
         <script src="../script/slideScript.js"></script>
         <script src="../script/script.js"></script>
     </body>

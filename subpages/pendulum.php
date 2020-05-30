@@ -25,9 +25,10 @@
                 <div class="w3-col s8 w3-bar">
                         <span><?php echo $lang['welcome']?><span> <i class="	fa fa-child"></i><br><br>
                                       <div class="flags">
-                                            <p><strong><?php echo $lang['lang']?></strong></p>
-                                            <a href="pendulum.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
-                                            <a href="pendulum.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                          <p><strong><?php echo $lang['lang']?></strong></p>
+                                          <a href="pendulum.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
+                                          <a href="pendulum.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                          <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
                                       </div>
                 </div>
             </div>
@@ -44,6 +45,13 @@
                 <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
         <!-- Overlay effect when opening sidebar on small screens -->
@@ -72,12 +80,9 @@
                     </div>
                     <br>
                     <div id="form_div">
-                        <form method="post">
-                            <label for="const"><?php echo $lang['const']?>
-                            </label>
-                            <input id="const" type="number" name="value">
-                            <button type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
-                        </form>
+                        <label for="const"><?php echo $lang['const']?></label>
+                        <input id="const" type="number" name="value">
+                        <button id="pendulum_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
                     </div>
                     <br><br>
                 </div>
@@ -163,14 +168,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-            </footer>
         </div>
-
-
+        
         <script src="../script/slideScript.js"></script>
         <script src="../script/script.js"></script>
     </body>
