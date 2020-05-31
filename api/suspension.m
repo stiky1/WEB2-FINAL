@@ -13,10 +13,10 @@ K = [0 2.3e6 5e8 0 8e6];
 sys = ss(Aa-Ba(:,1)*K,Ba,Ca,Da);
 
 t = 0:0.01:5;
-initX1=0;
+initX1=0; %zaciatok modrej ciary
 initX1d=0;
-initX2=0;
+initX2=0; %zaciatok zltej ciary
 initX2d=0;
 [y,t,x]=lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
 
-[t, x(:,1),x(:,3)]
+[t, x(:,1), x(:,3)]

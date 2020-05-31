@@ -23,13 +23,13 @@
         <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
             <div class="w3-container w3-row">
                 <div class="w3-col s8 w3-bar">
-                            <span><?php echo $lang['welcome']?><span><i class="	fa fa-child"></i><br><br>
-                                    <div class="flags">
-                                        <p><strong><?php echo $lang['lang']?></strong></p>
-                                        <a href="suspensionsys.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
-                                        <a href="suspensionsys.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
-                                        <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
-                                    </div>
+                    <span><?php echo $lang['welcome']?><span><i class="	fa fa-child"></i><br><br>
+                            <div class="flags">
+                                <p><strong><?php echo $lang['lang']?></strong></p>
+                                <a href="suspensionsys.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
+                                <a href="suspensionsys.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
+                            </div>
                 </div>
             </div>
             <hr>
@@ -83,12 +83,18 @@
                         <input id="const" type="number" name="value">
                         <button id="suspension_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
                         <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['suspension_input_tooltip']?></span>
-
                     </div>
                     <br><br>
                 </div>
 
-                <div id="model_div"></div>
+                <div id="model_div">
+                    <svg></svg>
+                </div>
+
+                <div id="graph_info_div">
+                    <p id="tr1"><?php echo $lang['suspension_graph_tr1']?></p>
+                    <p id="tr2"><?php echo $lang['suspension_graph_tr2']?></p>
+                </div>
 
                 <div id="graph_div"></div>
             </div>
@@ -98,3 +104,15 @@
         <script src="../script/script.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -83,6 +83,7 @@
                         <label for="const"><?php echo $lang['const']?></label>
                         <input id="const" type="number" name="value">
                         <button id="airplane_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
+                        <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['airplane_input_tooltip']?></span>
                     </div>
                     <br><br>
                 </div>
@@ -95,10 +96,10 @@
                     <p id="tr1"><?php echo $lang['airplane_graph_tr1']?></p>
                     <p id="tr2"><?php echo $lang['airplane_graph_tr2']?></p>
                 </div>
+
                 <div id="graph_div">
 
                 </div>
-
             </div>
 
             <!-- Footer -->

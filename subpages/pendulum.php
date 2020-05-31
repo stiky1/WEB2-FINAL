@@ -83,90 +83,19 @@
                         <label for="const"><?php echo $lang['const']?></label>
                         <input id="const" type="number" name="value">
                         <button id="pendulum_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
+                        <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['pendulum_input_tooltip']?></span>
                     </div>
                     <br><br>
                 </div>
 
                 <div id="model_div"></div>
-                <div id ="graph_div"></div>
 
-
-                <div id = "app">
-                    <script src="../script/final_JS.js"></script>
-                    <div class = "txt">
-                        <?php
-                        $new = $_POST["value"];
-                        $cmd = "octave -q --no-window-system --eval '[t,y]=pendulum($new)'";
-                        exec($cmd,$op);
-
-                        unset($op[0], $op[1]);
-                        $i = 0;
-
-                        for (;$i <= sizeof($op);$i++){
-                            $key = array_search("",$op);
-                            unset($op[$key]);
-                        }
-
-                        $foundT = false;
-                        $foundY = false;
-                        $t = array();
-                        $y = array();
-                        $angle = array();
-
-                        foreach ($op as $cell){
-                            if($cell === 't =' || $foundT){
-                                $foundT = true;
-                                array_push($t,round($cell,2));
-                            }
-                            if ($cell === 'y =' || $foundY){
-                                $foundT = false;
-                                $foundY = true;
-                                array_push($y,round($cell,5));
-                                $angleData = explode(" ", $cell);
-                                array_push($angle, end($angleData));
-                            }
-                        }
-                        $key = array_search("t =",$t);
-                        unset($t[$key]);
-                        $key = array_search("y =",$y);
-                        unset($y[$key]);
-                        $key = array_search("=",$angle);
-                        unset($angle[$key]);
-                        ?>
-                        <div id = "animationId">
-                            <object data="pendulum_svg/ellipse.svg" type="image/svg+xml">
-                                <img src="pendulum_svg/ellipse.svg" alt = "Ellipse">
-                            </object>
-                            <object data="pendulum_svg/line1.svg" type="image/svg+xml">
-                                <img src="pendulum_svg/line1.svg" alt = "Line 1">
-                            </object>
-                            <object data="pendulum_svg/line2.svg" type="image/svg+xml">
-                                <img src="pendulum_svg/line2.svg" alt = "Line 2">
-                            </object>
-                        </div>
-                        <script>
-                            var time= [<?php echo '"'.implode('","', $t).'"' ?>];
-                            var y= [<?php echo '"'.implode('","', $y).'"' ?>];
-                            var angle= [<?php echo '"'.implode('","', $angle).'"' ?>];
-
-                            var trace1 = {
-                                x: time,
-                                y: y,
-                                type: 'scatter'
-                            };
-
-                            var trace2 = {
-                                x: time,
-                                y: angle,
-                                type: 'scatter'
-                            };
-
-                            var data = [trace1,trace2];
-
-                            Plotly.newPlot('graph_div', data);
-                        </script>
-                    </div>
+                <div id="graph_info_div">
+                    <p id="tr1"><?php echo $lang['pendulum_graph_tr1']?></p>
+                    <p id="tr2"><?php echo $lang['pendulum_graph_tr2']?></p>
                 </div>
+
+                <div id="graph_div"></div>
             </div>
         </div>
         

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
     </head>
 
     <body class="w3-light-grey">
@@ -96,12 +97,35 @@
                     </div>
                     <div></div>
                 </div>
-            </div>
-            <br>
-            <br>
+
+                <div class="w3-quarter">
+                    <div class="grid-item columnZolo">✦ (͡° ͜ʖ ͡°) 𝕗̤̱̱̊𝕒̫͈ͩ́𝕫͉̲̉̒̋ͤͬ̚𝕖͓̜̼̔ͮ͗̆̓𝕜͙͈̺̖͛𝕒̖͈̤̠̩̾ͪ̊𝕤̳̬͙̐ͥ̀ (͡° ͜ʖ ͡°) ✦</div>
+                    <div class="grid-item columnZolo">2</div>
+                    <div class="grid-item columnZolo">3</div>
+                </div>
+
+                <div class="w3-quarter">
+                    <div class="grid-item columnJuraj">(- _ -)</div>
+                    <div class="grid-item columnJuraj">// ( . Y . ) \\</div>
+                    <div class="grid-item columnJuraj">/  /\  \</div>
+                </div>
+
+                <div class="w3-quarter">
+                    <div class="grid-item columnLukrecka">Nezvestná</div>
+                    <div class="grid-item columnLukrecka">Nezvestná</div>
+                    <div class="grid-item columnLukrecka">Nezvestná</div>
+                </div>
+
+                <div class="w3-quarter">
+                    <div class="grid-item columnLukas">Čínska mafia</div>
+                    <div class="grid-item columnLukas">(-(-(-(-_-)-)-)-)</div>
+                    <div class="grid-item columnLukas">3</div>
+                </div>
+            </div> <br><br>
 
             <div class="w3-container" id="stat_div">
                 <h4> <i class="fa fa-bar-chart"></i>  <?php echo $lang['stats'] ?></h4>
+
                 <p><?php echo $lang['pendulum']?></p>
                 <div class="w3-grey">
                     <div class="w3-container w3-center w3-padding w3-red" id="stat_div_pendulum"></div>
@@ -120,6 +144,15 @@
                 <p><?php echo $lang['car']?></p>
                 <div class="w3-grey">
                     <div class="w3-container w3-center w3-padding w3-orange" id="stat_div_car"></div>
+                </div>
+
+                <div id="send_stat">
+                    <form action="#" method="post">
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="email" placeholder="abcd@gmail.com">
+                        <button id="send_mail" type="submit" name="submit" class="btn" onclick="sendMail()"><?php echo $lang['submit_stat']?></button>
+                    </form>
+
                 </div>
             </div>
 

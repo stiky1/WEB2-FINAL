@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../style/style.css">
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
 
@@ -57,38 +58,43 @@
         <!-- Overlay effect when opening sidebar on small screens -->
         <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-            <!-- !PAGE CONTENT! -->
-            <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+        <!-- !PAGE CONTENT! -->
+        <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-                <!-- Header -->
-                <header class="w3-container" style="padding-top:22px">
-                    <h3><b><i class="fa fa-futbol-o"></i> <?php echo $lang['ball']?></b></h3>
-                </header>
+            <!-- Header -->
+            <header class="w3-container" style="padding-top:22px">
+                <h3><b><i class="fa fa-futbol-o"></i> <?php echo $lang['ball']?></b></h3>
+            </header>
 
-                <div class="w3-row-padding w3-margin-bottom">
-                    <br>
-                    <div>
-                        <div id="checkbox_div">
-                            <label class="container"><?php echo $lang['animation']?>
-                                <input type="checkbox" checked="checked" id="model_checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container"><?php echo $lang['graph']?>
-                                <input type="checkbox" checked="checked" id="graph_checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <br>
-                        <div id="form_div">
-                            <label for="const"><?php echo $lang['const']?></label>
-                            <input id="const" type="number" name="value">
-                            <button id="ball_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
-                        </div>
-                        <br><br>
+            <div class="w3-row-padding w3-margin-bottom">
+                <br>
+                <div>
+                    <div id="checkbox_div">
+                        <label class="container"><?php echo $lang['animation']?>
+                            <input type="checkbox" checked="checked" id="model_checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container"><?php echo $lang['graph']?>
+                            <input type="checkbox" checked="checked" id="graph_checkbox">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
+                    <br>
+                    <div id="form_div">
+                        <label for="const"><?php echo $lang['const']?></label>
+                        <input id="const" type="number" name="value">
+                        <button id="ball_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
+                        <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['ball_input_tooltip']?></span>
+                    </div>
+                    <br><br>
                 </div>
 
-                <div id="model_div">
+                <div id="model_div"></div>
+
+                <div id="graph_info_div">
+                    <p id="tr1"><?php echo $lang['ball_graph_tr1']?></p>
+                    <p id="tr2"><?php echo $lang['ball_graph_tr2']?></p>
                 </div>
 
                 <div id="graph_div"></div>
@@ -99,3 +105,10 @@
         <script src="../script/script.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+

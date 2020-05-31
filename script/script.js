@@ -1,4 +1,6 @@
 var apiResponse = null;
+var inputData = null;
+var inputData2 = null;
 var apiKey = "d4e2ad09-b1c3-4d70-9a9a-0e6149302486";
 $(document).ready(function() {
     var path = window.location.pathname;
@@ -32,8 +34,10 @@ $(document).ready(function() {
     $("#graph_checkbox").change(function () {
         if(this.checked) {
             $("#graph_div").show("slow");
+            $("#graph_info_div").show("slow");
         } else {
             $("#graph_div").hide("slow");
+            $("#graph_info_div").hide("slow");
         }
     });
     $("#commandSubmit").click(function(){
@@ -61,17 +65,19 @@ $(document).ready(function() {
     });
     $("#airplane_request").click(function(){
         var command = $.trim($("#const").val());
-        sendRequest(
-            'http://147.175.121.210:8177/WEB2-FINAL/api/',
-            'GET',
-            'airplane',
-            JSON.stringify({r:command}));
-        airplaneGraph(apiResponse);
-        apiResponse = null;
+        if(validParam('airplane',command)){
+            sendRequest(
+                'http://147.175.121.210:8177/WEB2-FINAL/api/',
+                'GET',
+                'airplane',
+                JSON.stringify({r:command}));
+            airplaneGraph(apiResponse);
+            apiResponse = null;
+        }
     });
-
-
 });
+
+
 
 function sendRequest(apiHost, callType, apiFunctionName, apiFunctionParams) {
     $.ajax({
@@ -87,6 +93,7 @@ function sendRequest(apiHost, callType, apiFunctionName, apiFunctionParams) {
         async: false,
         success: function (response) {
             apiResponse = response;
+            // console.log(apiResponse);
         },
         error: function() {
             console.log("Error");
@@ -111,10 +118,12 @@ function getStat() {
         ''
     );
 }
+
 function setDefaultGraph() {
     suspensionGraph({time:[0],data1:[0],data2:[0]});
     airplaneGraph({time:[0],data1:[0],data2:[0]});
 }
+
 function suspensionGraph(apiResponse) {
     var graphData = apiResponse;
     var trace1 = {
@@ -132,7 +141,25 @@ function suspensionGraph(apiResponse) {
     var data = [trace1,trace2];
     Plotly.newPlot('graph_div', data);
 }
+function appendData(json1,json2) {
+    var json = {
+        time: json1.time.concat(json2.time),
+        data1: json1.data1.concat(json2.data1),
+        data2: json1.data2.concat(json2.data2)
+    };
+    return json;
+}
 function airplaneGraph(apiResponse) {
+    // console.log(apiResponse);
+    // if(inputData !== null) {
+    //     console.log('asdada');
+    //     inputData2 = apiResponse.data3;
+    //     var graphData = appendData(inputData,apiResponse);;
+    // } else {
+    //     console.log('sadad');
+    //     graphData = apiResponse;
+    // }
+    // inputData = graphData;
     var graphData = apiResponse;
     var trace1 = {
         x: graphData.time,
@@ -149,13 +176,14 @@ function airplaneGraph(apiResponse) {
     var data = [trace1,trace2];
     Plotly.newPlot('graph_div', data);
 }
+
 function validParam(model,param) {
     if (model === 'suspension') {
         if (param >= -0.3 && param <= 0.3) {
             return true;
         }
     } if (model === 'airplane') {
-        if (param) {
+        if (param >= -1.0 && param <= 1.0) {
             return true;
         }
     } if (model === 'ball') {
@@ -167,13 +195,17 @@ function validParam(model,param) {
 
         }
     }
-    // $("#input_tooltip").css("visibility", "visible");
-    // // setTimeout(function(){
-    // //     $("#input_tooltip").css("visibility", "hidden");
-    // // }, 5000);
     $("#input_tooltip").show("slow");
     setTimeout(function(){
         $('#input_tooltip').hide("slow");// or fade, css display however you'd like.
     }, 5000);
     return false;
 }
+//
+// function sendMail() {
+//     var link = "mailto:" + escape(document.getElementById('email').value)
+//         + "&subject=" + escape("Stats")
+//     ;
+//
+//     window.location.href = link;
+// }

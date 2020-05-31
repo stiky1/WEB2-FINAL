@@ -36,13 +36,17 @@ class API_Handler {
         }
     }
     private function airPlane($param) {
-        $param = "r=".$param['r'];
-        $cmd = 'octave -q --no-window-system --eval "'.$param.'; airplane"';
+        $cmd = "r=".$param['r'];
+        $cmd2 = "inputData=".$param['inputData'];
+        if($param['input'] == null) {
+            $cmd2 = "inputData=0";
+        }
+        $cmd = 'octave -q --no-window-system --eval "'.$cmd.'; airplane"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
-        //return json_encode($output,JSON_PRETTY_PRINT);
+        return json_encode($op);
     }
     private function ball($param) {
         $param = "r=".$param['r'];
@@ -80,19 +84,19 @@ class API_Handler {
         $time = array();
         $data1 = array();
         $data2 = array();
-
+//        $data3 = array();
         foreach ($op as $cell) {
             $cell = preg_replace('/\s+/', ' ', $cell);
             $angleData = explode(" ", $cell);
-            array_push($time, $angleData[1]);
-            array_push($data1, $angleData[2]);
-            if($angleData[3]){
-                array_push($data2, $angleData[3]);
-            }
+            if($angleData[1] != null) {array_push($time, $angleData[1]);}
+            if($angleData[2] != null) {array_push($data1, $angleData[2]);}
+            if($angleData[3] && $angleData[2] != null) {array_push($data2, $angleData[3]);}
+//            if($angleData[4]) {array_push($data3, $angleData[4]);}
         }
         $data["time"] = $time;
         $data["data1"] = $data1;
         $data["data2"] = $data2;
+//        $data["data3"] = $data3;
 
         return json_encode($data, JSON_PRETTY_PRINT);
     }
