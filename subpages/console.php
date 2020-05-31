@@ -47,6 +47,13 @@
                 <a href="suspensionsys.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck"></i>  <?php echo $lang['car']?></a>
                 <a href="airplane.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?></a>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="right">
+                    <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
+                </div>
+            </footer>
         </nav>
 
         <!-- Overlay effect when opening sidebar on small screens -->
@@ -59,20 +66,19 @@
             <header class="w3-container" style="padding-top:22px">
                 <h3><b><i class="fa fa-laptop"></i> <?php echo $lang['console']?></b></h3>
             </header>
-
             <div class="w3-row-padding w3-margin-bottom">
                 <div class = "consoleContainer"><br>
                     <div class="cmd">
                         <textarea id="command" name="command" rows="8" cols="50" placeholder="<?php echo $lang['command']?>"></textarea><br>
-                        <button id="commandSubmit" type="submit" name="commandSubmit" class="btn"><?php echo $lang['submit']?></button>
+                        <button id="commandSubmit" type="submit" name="commandSubmit" class="btn buttons"><?php echo $lang['submit']?></button>
                     </div>
 
-                    <div id="result"></div>
+                    <div id="console_result"></div>
                 </div>
 
                 <div class="dataExport">
                     <header class="w3-container" style="padding-top:22px">
-                        <h3><b><i class="fa fa-download" aria-hidden="true"></i> <?php echo $lang['export']?></b></h3>
+                        <h4><b><i class="fa fa-download" aria-hidden="true"></i> <?php echo $lang['export']?></b></h4>
                     </header>
 
                     <div class="downloadBtn">
@@ -90,11 +96,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
-            </footer>
         </div>
 
         <script src="../script/slideScript.js"></script>

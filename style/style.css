@@ -7,13 +7,93 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     height: 20px;
     align-items: center;
 }
+.fa-arrows-v {
+    color: #f44336;
+}
+.fa-futbol-o {
+    color: #009688;
+}
+.fa-truck {
+    color: #ff9800;
+}
+.fa-plane {
+    color: #2196f3;
+}
+.fa-home {
+    color: goldenrod;
+}
+.fa-laptop {
+    color: darkblue;
+}
+.fa-gears {
+    color:  darkslategrey;
+}
+#form_div {
+    display: flex;
+}
+#form_div input[type=number]{
+    width: 10%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
 
+#form_div label, #send_stat label {
+    font-size: 22px;
+    margin: 10px;
+}
+#form_div button, #send_stat button {
+    margin-left: 10px;
+    padding: 11.5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+}
+#form_div button:hover, #send_stat button:hover {
+    background-color: gold;
+}
+.flags .tooltiptext {
+    visibility: hidden;
+    background-color: rgba(204, 204, 204, 0.4);
+    border: 1px solid #ccc;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    margin-top: 1.7vw;
+}
+.input_tooltiptext {
+    display: none;
+    background-color: rgba(204, 204, 204, 0.4);
+    border: 1px solid #ccc;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    z-index: 1;
+    margin-left: 0.5vw;
+}
+
+.flags:hover .tooltiptext {
+    visibility: visible;
+}
 textarea
 {
     font-size: 1.25vw;
 }
 
-#result
+#console_result
 {
     margin: 0vw 0vw 0vw 1vw;
     border-width: 0.05vw;
@@ -25,10 +105,221 @@ textarea
     font-size: 1.25vw;
     background: white;
 }
-
 .consoleContainer, .downloadBtn
 {
     display: flex;
 }
 
+#model_div {
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 3%;
+    height: auto;
+    background-color: white;
+}
+#model_div svg {
+    width: 75%;
+    height: auto;
+    margin-left: 12.5%;
+}
+#graph_div {
+    width: 60%;
+    height: auto;
+    margin: 0 0 3% 20%;
+}
+#graph_info_div {
+    width: 20%;
+    margin-left: 20%;
+    background-color: #f1f1f1;
+    font-size: 0.7vw;
+    display: flex;
+}
+#tr1 {
+    color: #ff7f0e;
+}
+#tr2 {
+    margin-left: 5%;
+    color: #1f77b4;
+}
+#stat_div {
+    width: 70%;
+    background-color: white;
+    margin: 0 0 5% 15%;
+    padding: 30px;
+}
+#send_stat{
+    margin-top: 2%;
+    font-weight: bolder;
+    display: flex;
+}
+
+#send_stat label
+{
+    font-size: 20px;
+}
+
+#send_stat input[type=email]
+{
+    padding: 12px 20px 12px 12px;
+}
+h3 {
+    /*text-transform: uppercase;*/
+    background-image: -webkit-linear-gradient(0deg, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
+    background-image: -moz-linear-gradient(0deg, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
+    background-image: linear-gradient(to right, hsla(175,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 16.666667%, hsla(150,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 33.333333%, hsla(75,70%,40%,1) 50%, hsla(25,70%,40%,1) 50%, hsla(25,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 66.666667%, hsla(10,70%,40%,1) 83.333333%, hsla(300,70%,40%,1) 83.333333%);
+    -webkit-background-size: 20% 3px;
+    -moz-background-size: 20% 3px;
+    background-size: 20% 3px;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+}
+h3 {
+    font-size: 1.4vw;
+}
+
+#checkbox_div {
+    display: flex;
+}
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ffffb7;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: gold;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.downloadBtn button {
+    padding: 11.5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 5px;
+}
+
+.downloadBtn button:hover, .buttons:hover
+{
+    background-color: gold;
+}
+
+.buttons {
+    padding: 11.5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 5px;
+}
+
+h4{
+    font-weight: bolder;
+}
+
+footer
+{
+    position:fixed;
+    left: 0vw;
+    bottom: 0vw;
+    margin-bottom: 0;
+    height: 2vw;
+    width: 100%;
+    background: black;
+    font-size: 16px;
+}
+
+.right
+{
+    float: right;
+    margin-right: 10px;
+    color: white;
+}
+
+.right p{
+    margin-top: 8px;
+}
+
+.grid-item {
+    background-color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.columnZolo {
+    border: 2px solid #f44336;
+}
+
+.columnJuraj{
+    border: 2px solid #2196F3;
+}
+
+.columnLukrecka {
+    border: 2px solid #009688;
+}
+
+.columnLukas{
+    border: 2px solid #ff9800;
+}
 
