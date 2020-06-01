@@ -6,8 +6,6 @@ if ((!defined('CONST_INCLUDE_KEY')) || (CONST_INCLUDE_KEY !== 'd4e2ad09-b1c3-4d7
 
 class API_Handler {
     public function execCommand($functionName, $functionParam) {
-        //return json_encode($functionParams, JSON_PRETTY_PRINT);
-
         if(isset($functionName) || $functionName != '' && isset($functionParam)) {
             if($functionName == 'airplane') {
                 return $this->airPlane($this->decode($functionParam));
@@ -23,8 +21,8 @@ class API_Handler {
                 return $this->incrementStats($functionParam);
             } if($functionName == 'getStat') {
                 return $this->getStats();
-            } if($functionName == 'getLogs') {
-                return $this->getLogs();
+            } if($functionName == 'sendMail') {
+                return $this->sendMail($functionParam);
             }
         }
     }
@@ -37,16 +35,11 @@ class API_Handler {
     }
     private function airPlane($param) {
         $cmd = "r=".$param['r'];
-        $cmd2 = "inputData=".$param['inputData'];
-        if($param['input'] == null) {
-            $cmd2 = "inputData=0";
-        }
         $cmd = 'octave -q --no-window-system --eval "'.$cmd.'; airplane"';
         exec($cmd, $op, $rv);
         $this->createLog($rv,$param);
         unset($op[0], $op[1]);
         return $this->parseData($op);
-        return json_encode($op);
     }
     private function ball($param) {
         $param = "r=".$param['r'];
@@ -97,7 +90,6 @@ class API_Handler {
         $data["data1"] = $data1;
         $data["data2"] = $data2;
 //        $data["data3"] = $data3;
-
         return json_encode($data, JSON_PRETTY_PRINT);
     }
 
@@ -114,10 +106,8 @@ class API_Handler {
         $sql = "SELECT page, max(count) as sum FROM stats GROUP BY page";
         $stmt = $connect->query($sql);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         $keys = array();
         $sum = 0;
-
         if ($result) {
             foreach ($result as $calculation) {
                 $sum += $calculation["sum"];
@@ -133,15 +123,33 @@ class API_Handler {
 
     private function createLog($rv, $command) {
         include './config.php';
-
         date_default_timezone_set("Slovakia/Bratislava");
         $commandTime = date("F j, Y, g:i a",strtotime('+2 hour'));
-
         $response = ($rv == 0 ? 'true' : 'false');
-        $info = ($response == 'true' ? '' : 'Error');
-
+        $info = ($response == 'true' ? '' : ''.$command.' is undefined');
         $sql = "INSERT INTO logs (command, commandTime, execution, executeInfo)
                 VALUES ('$command', '$commandTime','$response','$info')";
         $connect->query($sql);
+    }
+
+    private function sendMail($address) {
+        include './config.php';
+        if (!filter_var($address, FILTER_VALIDATE_EMAIL)) {
+            return json_encode(false,JSON_PRETTY_PRINT);
+        }
+        $stats = $this->decode($this->getStats());
+        $mess = 'Airplane: '.$stats['airplane'].'%'. "\r\n" .
+                'Beam and Ball: '.$stats['ball'].'%'. "\r\n".
+                'Pendulum: '.$stats['pendulum'].'%'. "\r\n" .
+                'Suspension system: '.$stats['suspensionsys'].'%';
+        $mailTo = $address;
+        $subject = 'SSSB website stats';
+        $headers = 'From: sssb@finalzadanie.com' . "\r\n" .
+            'Reply-To: sssb@finalzadanie.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        if(mail($mailTo, $subject, $mess, $headers)) {
+            return json_encode(true,JSON_PRETTY_PRINT);
+        }
+        return json_encode(false,JSON_PRETTY_PRINT);
     }
 }

@@ -13,7 +13,7 @@ sys = ss(A-B*K, B*N, C, D);
 initAlfa=0;
 initQ=0;
 initTheta=0;
-t = 0:0.1:40;
+t = 0:0.1:10;
 [y,t,x]=lsim(sys,r*ones(size(t)),t,[initAlfa;initQ;initTheta]);
 [t,x(:,3),r*ones(size(t))*N-x*K']
 

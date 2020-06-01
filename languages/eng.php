@@ -1,3 +1,4 @@
+
 <?php
     $lang = array(
         "welcome" => "Welcome, everyone ",
@@ -15,12 +16,13 @@
         "command" => "Type expession here and press Submit",
         "export" => "Export file with commands",
         "stats" => "Statistics of pages attendance",
+        "api_stats" => "Statistics",
         "airplane_graph_tr1" => "• Tilt of the plane",
         "airplane_graph_tr2" => "• Tilt of the flap",
         "airplane_input_tooltip" => "'r' value should be between -1.0 and 1.0.",
         "suspension_graph_tr1" => "• Car bodywork",
         "suspension_graph_tr2" => "• Wheel",
-        "suspension_input_tooltip" => "'r' value should be between -0.3 and 0.3.",
+        "suspension_input_tooltip" => "'r' value should be between -0.4 and 0.4.",
         "pendulum_graph_tr1" => "• ",
         "pendulum_graph_tr2" => "• ",
         "pendulum_input_tooltip" => "",
@@ -29,4 +31,18 @@
         "ball_input_tooltip" => "",
         "tooltip" => "When you change the language, your work will be lost.",
         "submit_stat" => "Send statistics",
+        "airplane_angle" => "Tilt of the airplane: ",
+        "lang_uloha" => "Languages",
+        "page_design_uloha" => "WEB design",
+        "stat_design_uloha" => "Statistics design",
+        "console_uloha" => "Console page",
+        "csv_uloha" => "CSV/PDF export",
+        "api_uloha" => "API page",
+        "mail_uloha" => "Send statistics to e-mail",
+        "gcko" => "Beast G-class car model",
+        "schedule" => "Work schedule",
+        "octave" => "Octave install/set-up",
+        "description" => "Description",
+        "parameters" => "Parameters",
+        "response" => "API response",
     );
