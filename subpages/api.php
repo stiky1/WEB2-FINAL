@@ -51,20 +51,84 @@
             </footer>
         </nav>
 
-
         <!-- Overlay effect when opening sidebar on small screens -->
         <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
             <!-- Header -->
             <header class="w3-container" style="padding-top:22px">
                 <h3><b><i class="fa fa-gears"></i> API</b></h3>
             </header>
 
             <div class="w3-row-padding w3-margin-bottom">
+                <table class="table_container">
+                    <thead>
+                        <th><h4><i class="fa fa-arrows-v"></i>  <?php echo $lang['pendulum']?> (GET)</h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre kyvadlo <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "pendulum", parametre pre CAS <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozicia kyvadla[], naklon vertikalnej tyce[] }
+                        </td>
+                    </thead>
 
+                    <thead>
+                        <th><h4><i class="fa fa-futbol-o"></i>  <?php echo $lang['ball']?> (GET)</h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre guličku <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "ball", parametre pre CAS <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozícia guličky[], náklon tyče[] }
+                        </td>
+                    </thead>
+
+                    <thead>
+                        <th><h4><i class="fa fa-truck"></i>  <?php echo $lang['car']?> (GET)</h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre tlmič <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "suspension", parametre pre CAS <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozícia auta[], pozícia kolesa[] }
+                        </td>
+                    </thead>
+
+                    <thead>
+                        <th><h4><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?> (GET)</h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre lietadlo <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "airplane", parametre pre CAS <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ čas[], náklon lietadla[], náklon zadnej klapky[] }
+                        </td>
+                    </thead>
+
+                    <thead>
+                        <th><h4><i class="fa fa-gears"></i>  API</h4></th>
+                        <td>
+                            <strong>Link: </strong>http://147.175.121.210:8177/WEB2-FINAL/api/
+                        </td>
+                    </thead>
+
+                    <thead>
+                        <th><h4><i class="fa fa-bar-chart"></i>  <?php echo $lang['api_stats']?> (GET/POST/MAIL)</h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?> (GET): </strong>vráti json s hodnotami z databázy návštevnosti stránok <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "getStat" <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ názov stránky: počet, ... } <br><br>
+                            <strong><?php echo $lang['description']?> (POST): </strong>aktualizuje štatistiku stránok v databáze <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "incStat", parameter pre funkciu(názov stránky) <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ true - ak všetko prebehlo vporiadku } <br><br>
+                            <strong><?php echo $lang['description']?> (MAIL): </strong>odošle mail so štatistikami na zadanú mailovú adresu <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "sendMail", parametre pre funkciu(mailová adresa) <br>
+                        </td>
+                    </thead>
+
+                    <thead>
+                        <th><h4><i class="fa fa-laptop"></i>  <?php echo $lang['console']?></h4></th>
+                        <td>
+                            <strong><?php echo $lang['description']?>: </strong>vráti json s výsledkom pre zadaný príkaz ktorý vyráta CAS <br>
+                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "cmd", parameter - príkaz do CAS <br>
+                            <strong><?php echo $lang['response']?>: </strong>{ výsledok z CAS pre zadaný príkaz }
+                        </td>
+                    </thead>
+                </table>
             </div>
         </div>
         <script src="../script/slideScript.js"></script>

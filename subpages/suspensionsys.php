@@ -12,11 +12,12 @@
         <link rel="stylesheet" href="../style/style.css">
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
     </head>
 
     <body class="w3-light-grey">
         <!-- Top container -->
-        <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <div class="w3-bar w3-top w3-black w3-large suspension_frame" style="z-index:4">
             <span class="w3-bar-item w3-right">WEBTECH - FINAL</span>
         </div>
         <!-- Sidebar/menu -->
@@ -47,7 +48,7 @@
             </div>
 
             <!-- Footer -->
-            <footer>
+            <footer class="suspension_frame">
                 <div class="right">
                     <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
                 </div>
@@ -80,15 +81,17 @@
                     <br>
                     <div id="form_div">
                         <label for="const"><?php echo $lang['const']?></label>
-                        <input id="const" type="number" name="value">
+                        <input id="const" type="number" name="value" step="0.1">
                         <button id="suspension_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
                         <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['suspension_input_tooltip']?></span>
                     </div>
-                    <br><br>
+                    <br><br><br>
                 </div>
 
-                <div id="model_div">
-                    <svg></svg>
+                <div id="model_div" class="model_div_img">
+                    <img id="carModel" src="../pics/car.png" alt="">
+                    <img id="frontWheel" src="../pics/front.png" alt="">
+                    <img id="backWheel" src="../pics/back.png" alt="">
                 </div>
 
                 <div id="graph_info_div">

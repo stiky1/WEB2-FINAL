@@ -22,4 +22,4 @@ pkg load control
     initPozicia=0;
     initUhol=0;
     [y,t,x]=lsim(sys,r*ones(size(t)),t,[initPozicia;0;initUhol;0]);
-    [t,y]
+    [t,x(:,1),x(:,3)]

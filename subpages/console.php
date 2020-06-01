@@ -26,12 +26,13 @@
         <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
             <div class="w3-container w3-row">
                 <div class="w3-col s8 w3-bar">
-                        <span><?php echo $lang['welcome']?><span> <i class="	fa fa-child"></i><br><br>
-                                  <div class="flags">
-                                        <p><strong><?php echo $lang['lang']?></strong></p>
-                                        <a href="console.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
-                                        <a href="console.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
-                                  </div>
+                    <span><?php echo $lang['welcome']?><span> <i class="	fa fa-child"></i><br><br>
+                            <div class="flags">
+                                <p><strong><?php echo $lang['lang']?></strong></p>
+                                <a href="console.php?lang=svk" class="w3-bar-item w3-button"><img class="flag" src='../pics/svk.png'></a>
+                                <a href="console.php?lang=eng" class="w3-bar-item w3-button"><img class="flag" src="../pics/eng.png"></a>
+                                <span class="tooltiptext"><?php echo $lang['tooltip']?></span>
+                            </div>
                 </div>
             </div>
             <hr>

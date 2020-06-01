@@ -16,7 +16,7 @@
 
     <body class="w3-light-grey">
         <!-- Top container -->
-        <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <div class="w3-bar w3-top w3-black w3-large ball_frame" style="z-index:4">
             <span class="w3-bar-item w3-right">WEBTECH - FINAL</span>
         </div>
         <!-- Sidebar/menu -->
@@ -47,7 +47,7 @@
             </div>
 
             <!-- Footer -->
-            <footer>
+            <footer class="ball_frame">
                 <div class="right">
                     <p>&nbsp;&nbsp; © Szitás, Stekla, Szilvásiová, Bača  &nbsp;2020</p>
                 </div>
@@ -83,7 +83,7 @@
                     <br>
                     <div id="form_div">
                         <label for="const"><?php echo $lang['const']?></label>
-                        <input id="const" type="number" name="value">
+                        <input id="const" type="number" name="value" step="0.1">
                         <button id="ball_request" type="submit" name="submit" class="btn"><?php echo $lang['submit']?></button>
                         <span id="input_tooltip" class="input_tooltiptext"><?php echo $lang['ball_input_tooltip']?></span>
                     </div>

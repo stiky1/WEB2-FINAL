@@ -1,4 +1,5 @@
-<?php include "config.php" ?>
+<?php
+include "config.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -99,27 +101,34 @@
                 </div>
 
                 <div class="w3-quarter">
-                    <div class="grid-item columnZolo">✦ (͡° ͜ʖ ͡°) 𝕗̤̱̱̊𝕒̫͈ͩ́𝕫͉̲̉̒̋ͤͬ̚𝕖͓̜̼̔ͮ͗̆̓𝕜͙͈̺̖͛𝕒̖͈̤̠̩̾ͪ̊𝕤̳̬͙̐ͥ̀ (͡° ͜ʖ ͡°) ✦</div>
-                    <div class="grid-item columnZolo">2</div>
-                    <div class="grid-item columnZolo">3</div>
+                    <div class="grid-item columnZolo"><?php echo $lang['pendulum']?></div>
+                    <div class="grid-item columnZolo"><?php echo $lang['stats']?></div>
+                    <div class="grid-item columnZolo"><?php echo $lang['octave']?></div>
+                    <div class="grid-item columnZolo">-</div>
                 </div>
 
                 <div class="w3-quarter">
-                    <div class="grid-item columnJuraj">(- _ -)</div>
-                    <div class="grid-item columnJuraj">// ( . Y . ) \\</div>
-                    <div class="grid-item columnJuraj">/  /\  \</div>
+                    <div class="grid-item columnJuraj"><?php echo $lang['airplane']?></div>
+                    <div class="grid-item columnJuraj">API</div>
+                    <div class="grid-item columnJuraj"><?php echo $lang['lang_uloha']?></div>
+                    <div class="grid-item columnJuraj"><?php echo $lang['page_design_uloha']?></div>
+                    <div class="grid-item columnJuraj"><?php echo $lang['stat_design_uloha']?></div>
+
                 </div>
 
                 <div class="w3-quarter">
-                    <div class="grid-item columnLukrecka">Nezvestná</div>
-                    <div class="grid-item columnLukrecka">Nezvestná</div>
-                    <div class="grid-item columnLukrecka">Nezvestná</div>
+                    <div class="grid-item columnLukrecka"><?php echo $lang['ball']?></div>
+                    <div class="grid-item columnLukrecka"><?php echo $lang['schedule']?></div>
+                    <div class="grid-item columnLukrecka">-</div>
                 </div>
 
                 <div class="w3-quarter">
-                    <div class="grid-item columnLukas">Čínska mafia</div>
-                    <div class="grid-item columnLukas">(-(-(-(-_-)-)-)-)</div>
-                    <div class="grid-item columnLukas">3</div>
+                    <div class="grid-item columnLukas"><?php echo $lang['car']?></div>
+                    <div class="grid-item columnLukas"><?php echo $lang['console_uloha']?></div>
+                    <div class="grid-item columnLukas"><?php echo $lang['csv_uloha']?></div>
+                    <div class="grid-item columnLukas"><?php echo $lang['api_uloha']?></div>
+                    <div class="grid-item columnLukas"><?php echo $lang['mail_uloha']?></div>
+                    <div class="grid-item columnLukas"><?php echo $lang['gcko']?></div>
                 </div>
             </div> <br><br>
 
@@ -147,16 +156,11 @@
                 </div>
 
                 <div id="send_stat">
-                    <form action="#" method="post">
-                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <label id="mail_icon" for="email"><i  class="fa fa-envelope"></i> Email</label>
                         <input type="email" id="email" name="email" placeholder="abcd@gmail.com">
-                        <button id="send_mail" type="submit" name="submit" class="btn" onclick="sendMail()"><?php echo $lang['submit_stat']?></button>
-                    </form>
-
+                        <button id="mail_request" type="submit" name="submit" class="btn""><?php echo $lang['submit_stat']?></button>
                 </div>
             </div>
-
-            <div id="statResult"></div>
         </div>
 
         <script src="script/slideScript.js"></script>
