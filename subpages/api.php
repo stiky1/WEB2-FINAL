@@ -1,4 +1,7 @@
-<?php include "../config.php" ?>
+<?php
+    include "../config.php";
+    include "./fileDownload/downloadPdf.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -66,36 +69,36 @@
                     <thead>
                         <th><h4><i class="fa fa-arrows-v"></i>  <?php echo $lang['pendulum']?> (GET)</h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre kyvadlo <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "pendulum", parametre pre CAS <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozicia kyvadla[], naklon vertikalnej tyce[] }
+                            <strong><?php echo $lang['description']?>: </strong><?php echo $lang['description_continue']?> <?php echo $lang['pendulum']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_pendulum']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_pendulum']?>
                         </td>
                     </thead>
 
                     <thead>
                         <th><h4><i class="fa fa-futbol-o"></i>  <?php echo $lang['ball']?> (GET)</h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre guličku <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "ball", parametre pre CAS <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozícia guličky[], náklon tyče[] }
+                            <strong><?php echo $lang['description']?>: </strong><?php echo $lang['description_continue']?> <?php echo $lang['ball']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_ball']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_ball']?>
                         </td>
                     </thead>
 
                     <thead>
                         <th><h4><i class="fa fa-truck"></i>  <?php echo $lang['car']?> (GET)</h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre tlmič <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "suspension", parametre pre CAS <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ čas[], pozícia auta[], pozícia kolesa[] }
+                            <strong><?php echo $lang['description']?>: </strong><?php echo $lang['description_continue']?> <?php echo $lang['car']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_car']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_car']?>
                         </td>
                     </thead>
 
                     <thead>
                         <th><h4><i class="fa fa-plane"></i>  <?php echo $lang['airplane']?> (GET)</h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?>: </strong>vráti json s hodnotami určenými pre lietadlo <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "airplane", parametre pre CAS <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ čas[], náklon lietadla[], náklon zadnej klapky[] }
+                            <strong><?php echo $lang['description']?>: </strong><?php echo $lang['description_continue']?> <?php echo $lang['airplane']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_airplane']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_airplane']?>
                         </td>
                     </thead>
 
@@ -109,26 +112,40 @@
                     <thead>
                         <th><h4><i class="fa fa-bar-chart"></i>  <?php echo $lang['api_stats']?> (GET/POST/MAIL)</h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?> (GET): </strong>vráti json s hodnotami z databázy návštevnosti stránok <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "getStat" <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ názov stránky: počet, ... } <br><br>
-                            <strong><?php echo $lang['description']?> (POST): </strong>aktualizuje štatistiku stránok v databáze <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "incStat", parameter pre funkciu(názov stránky) <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ true - ak všetko prebehlo vporiadku } <br><br>
-                            <strong><?php echo $lang['description']?> (MAIL): </strong>odošle mail so štatistikami na zadanú mailovú adresu <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "sendMail", parametre pre funkciu(mailová adresa) <br>
+                            <strong><?php echo $lang['description']?> (GET): </strong><?php echo $lang['description_stats1']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_stats1']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_stats1']?> <br><br>
+                            <strong><?php echo $lang['description']?> (POST): </strong><?php echo $lang['description_stats2']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_stats2']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_stats2']?> <br><br>
+                            <strong><?php echo $lang['description']?> (MAIL): </strong><?php echo $lang['description_stats3']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_stats3']?> <br>
                         </td>
                     </thead>
 
                     <thead>
                         <th><h4><i class="fa fa-laptop"></i>  <?php echo $lang['console']?></h4></th>
                         <td>
-                            <strong><?php echo $lang['description']?>: </strong>vráti json s výsledkom pre zadaný príkaz ktorý vyráta CAS <br>
-                            <strong><?php echo $lang['parameters']?>: </strong>api kľúč, názov funkcie - "cmd", parameter - príkaz do CAS <br>
-                            <strong><?php echo $lang['response']?>: </strong>{ výsledok z CAS pre zadaný príkaz }
+                            <strong><?php echo $lang['description']?>: </strong><?php echo $lang['description_console']?> <br>
+                            <strong><?php echo $lang['parameters']?>: </strong><?php echo $lang['parameters_console']?> <br>
+                            <strong><?php echo $lang['response']?>: </strong><?php echo $lang['response_console']?>
                         </td>
                     </thead>
                 </table>
+
+                <div class="downloadBtnApi">
+                    <div>
+                        <form action="../fileDownload/downloadPdf.php" method="post">
+                            <button type="submit" name="pdfDownloadSvk"><i class="fa fa-file-pdf-o btn"></i> api_svk.pdf</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <form action="../fileDownload/downloadPdf.php" method="post">
+                            <button type="submit" name="pdfDownloadEng"><i class="fa fa-file-pdf-o btn"></i> api_eng.pdf</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="../script/slideScript.js"></script>

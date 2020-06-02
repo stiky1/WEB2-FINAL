@@ -105,9 +105,12 @@ textarea
     font-size: 1.25vw;
     background: white;
 }
-.consoleContainer, .downloadBtn
+.consoleContainer, .downloadBtn, .downloadBtnApi
 {
     display: flex;
+}
+.downloadBtnApi{
+    margin: 0 0 5% 9.8%;
 }
 .model_div_img {
     position: relative;
@@ -268,7 +271,7 @@ h3 {
     transform: rotate(45deg);
 }
 
-.downloadBtn button {
+.downloadBtn button , .downloadBtnApi button {
     padding: 11.5px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -278,7 +281,7 @@ h3 {
     margin-left: 5px;
 }
 
-.downloadBtn button:hover, .buttons:hover
+.downloadBtn button:hover, .downloadBtnApi button:hover, .buttons:hover
 {
     background-color: gold;
 }
@@ -399,7 +402,6 @@ footer
     background-color: orange;
 }
 
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 .table_container td {
     font-weight: normal;
@@ -412,7 +414,7 @@ footer
     width: 80%;
     margin: 0 auto;
     display: table;
-    padding: 0 0 8em 0;
+    padding: 0 0 2em 0;
 }
 
 .table_container td, .table_container th {
@@ -431,24 +433,24 @@ footer
     background-color: white;
 }
 
-.table_container thead:hover{
-    background-color: #ffffe8;
-    color: black;
-    font-weight: bold;
+/*.table_container thead:hover{*/
+/*    background-color: #ffffe8;*/
+/*    color: black;*/
+/*    font-weight: bold;*/
 
-    box-shadow: #606000 -1px 1px, #606000 -2px 2px, #606000 -3px 3px, #606000 -4px 4px, #606000 -5px 5px, #606000 -6px 6px;
-    transform: translate3d(6px, -6px, 0);
+/*    box-shadow: #606000 -1px 1px, #606000 -2px 2px, #606000 -3px 3px, #606000 -4px 4px, #606000 -5px 5px, #606000 -6px 6px;*/
+/*    transform: translate3d(6px, -6px, 0);*/
 
-    transition-delay: 0s;
-    transition-duration: 0.4s;
-    transition-property: all;
-    transition-timing-function: line;
-}
+/*    transition-delay: 0s;*/
+/*    transition-duration: 0.4s;*/
+/*    transition-property: all;*/
+/*    transition-timing-function: line;*/
+/*}*/
 
-@media (max-width: 800px) {
-    .table_container td:nth-child(4),
-    .table_container th:nth-child(4) { display: none; }
-}
+/*@media (max-width: 800px) {*/
+/*    .table_container td:nth-child(4),*/
+/*    .table_container th:nth-child(4) { display: none; }*/
+/*}*/
 
 .airplane_frame{
     background-color: #2196F3 !important;
