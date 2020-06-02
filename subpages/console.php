@@ -62,7 +62,6 @@
 
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
             <!-- Header -->
             <header class="w3-container" style="padding-top:22px">
                 <h3><b><i class="fa fa-laptop"></i> <?php echo $lang['console']?></b></h3>
@@ -91,7 +90,7 @@
 
                         <div>
                             <form id="downloadPdf" action="../fileDownload/downloadPdf.php" method="post">
-                                <button id="pdfDownload" type="submit" name="pdfDownload"><i class="fa fa-file-pdf-o btn"></i> .pdf</button>
+                                <button type="submit" name="pdfDownload"><i class="fa fa-file-pdf-o btn"></i> .pdf</button>
                             </form>
                         </div>
                     </div>
