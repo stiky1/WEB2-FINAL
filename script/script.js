@@ -127,13 +127,41 @@ function sendRequest(apiHost, callType, apiFunctionName, apiFunctionParams) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function ballGraph(apiResponse){
-
+    var graphData = apiResponse;
+    var trace1 = {
+        x: graphData.time,
+        y: graphData.data1,
+        type: 'scatter',
+        name: ''
+    };
+    var trace2 = {
+        x: graphData.time,
+        y: graphData.data2,
+        type: 'scatter',
+        name: ''
+    };
+    var data = [trace1,trace2];
+    Plotly.newPlot('graph_div', data);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function pendulumGraph(apiResponse){
-
+    var graphData = apiResponse;
+    var trace1 = {
+        x: graphData.time,
+        y: graphData.data1,
+        type: 'scatter',
+        name: ''
+    };
+    var trace2 = {
+        x: graphData.time,
+        y: graphData.data2,
+        type: 'scatter',
+        name: ''
+    };
+    var data = [trace1,trace2];
+    Plotly.newPlot('graph_div', data);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,7 +173,28 @@ function ballAnimation(apiResponse) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function pendulumAnimation(apiResponse){
-
+    var coordinates = apiResponse;
+    coordinates.data1.forEach((el,index) => {
+        coordinates.data1[index] = el * (480);
+    });
+    coordinates.data2.forEach((el,index) => {
+        coordinates.data2[index] = el * 90;
+    });
+    let animation = anime({
+        targets: '#wheelbarrow',
+        translateX: coordinates.data1,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 8000,
+    });
+    let animation2 = anime({
+        targets: '#stick',
+        translateX: coordinates.data1,
+        rotate: coordinates.data2,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 8000,
+    });
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,7 +207,7 @@ function validParam(model,param) {
         return true;
     } if (model === 'ball' && (param)) {
         return true;
-    } if (model === 'pendulum' && (param)) {
+    } if (model === 'pendulum' && (param >= -1 && param <= 1)) {
         return true;
     }
     $("#input_tooltip").show("slow");
@@ -221,16 +270,6 @@ function suspensionAnimation(apiResponse) {
     });
 }
 function airplaneGraph(apiResponse) {
-    // console.log(apiResponse);
-    // if(inputData !== null) {
-    //     console.log('asdada');
-    //     inputData2 = apiResponse.data3;
-    //     var graphData = appendData(inputData,apiResponse);;
-    // } else {
-    //     console.log('sadad');
-    //     graphData = apiResponse;
-    // }
-    // inputData = graphData;
     var graphData = apiResponse;
     var trace1 = {
         x: graphData.time,
@@ -338,11 +377,3 @@ function incStatistics(page) {
         page
     );
 }
-// function appendData(json1,json2) {
-//     var json = {
-//         time: json1.time.concat(json2.time),
-//         data1: json1.data1.concat(json2.data1),
-//         data2: json1.data2.concat(json2.data2)
-//     };
-//     return json;
-// }

@@ -28,6 +28,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .fa-gears {
     color:  darkslategrey;
 }
+#stick {
+    background-color: blue;
+    margin-left: 48%;
+    margin-right: 48%;
+    height: 100%;
+}
+
+#wheelbarrow {
+    background-color: brown;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 100px;
+    height: 25%;
+}
 #form_div {
     display: flex;
 }
@@ -433,24 +447,24 @@ footer
     background-color: white;
 }
 
-/*.table_container thead:hover{*/
-/*    background-color: #ffffe8;*/
-/*    color: black;*/
-/*    font-weight: bold;*/
+.table_container thead:hover{
+    background-color: #ffffe8;
+    color: black;
+    font-weight: bold;
 
-/*    box-shadow: #606000 -1px 1px, #606000 -2px 2px, #606000 -3px 3px, #606000 -4px 4px, #606000 -5px 5px, #606000 -6px 6px;*/
-/*    transform: translate3d(6px, -6px, 0);*/
+    box-shadow: #606000 -1px 1px, #606000 -2px 2px, #606000 -3px 3px, #606000 -4px 4px, #606000 -5px 5px, #606000 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
 
-/*    transition-delay: 0s;*/
-/*    transition-duration: 0.4s;*/
-/*    transition-property: all;*/
-/*    transition-timing-function: line;*/
-/*}*/
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+}
 
-/*@media (max-width: 800px) {*/
-/*    .table_container td:nth-child(4),*/
-/*    .table_container th:nth-child(4) { display: none; }*/
-/*}*/
+@media (max-width: 800px) {
+    .table_container td:nth-child(4),
+    .table_container th:nth-child(4) { display: none; }
+}
 
 .airplane_frame{
     background-color: #2196F3 !important;

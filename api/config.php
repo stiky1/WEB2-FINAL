@@ -15,3 +15,5 @@
     {
         echo "Connection failed: " . $e->getMessage();
     }
+
+    // pripojenie na databazu
