@@ -467,3 +467,21 @@ footer
 .pendulum_frame{
     background-color: #f44336 !important;
 }
+#beam {
+    width: 30%;
+    height: 2%;
+    background-color: black;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    border-radius: 10%;
+}
+#balll {
+    position: absolute;
+    bottom: 100%;
+    width: 15%;
+    height: 600%;
+    border-radius: 50%;
+    background-color: #009688 ;
+    left: 40%;
+}

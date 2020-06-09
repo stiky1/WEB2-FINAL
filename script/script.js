@@ -127,7 +127,21 @@ function sendRequest(apiHost, callType, apiFunctionName, apiFunctionParams) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function ballGraph(apiResponse){
-
+    var graphData = apiResponse;
+    var trace1 = {
+        x: graphData.time,
+        y: graphData.data1,
+        type: 'scatter',
+        name: ''
+    };
+    var trace2 = {
+        x: graphData.time,
+        y: graphData.data2,
+        type: 'scatter',
+        name: ''
+    };
+    var data = [trace1,trace2];
+    Plotly.newPlot('graph_div', data);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,6 +153,29 @@ function pendulumGraph(apiResponse){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function ballAnimation(apiResponse) {
+    var coordinates = apiResponse;
+    coordinates.data1.forEach((el,index) => {
+        coordinates.data1[index] = el;
+    });
+    coordinates.data2.forEach((el,index) => {
+        coordinates.data2[index] =  el  * (180/3.14) * 10;
+    });
+
+    let animationBall = anime({
+        targets: '#balll',
+        translateX: coordinates.data1,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 13000,
+    });
+
+    let animationBeam = anime({
+        targets: '#beam',
+        rotate: coordinates.data2,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 13000,
+    });
 
 }
 
@@ -156,7 +193,7 @@ function validParam(model,param) {
         return true;
     } if (model === 'airplane' && (param >= -1.0 && param <= 1.0)) {
         return true;
-    } if (model === 'ball' && (param)) {
+    } if (model === 'ball' && (param >= -90 && param <= 110)) {
         return true;
     } if (model === 'pendulum' && (param)) {
         return true;
