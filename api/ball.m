@@ -19,3 +19,4 @@ initRychlost=0;
 initZrychlenie=0;
 [y,t,x]=lsim(N*sys,r*ones(size(t)),t,[initRychlost;0;initZrychlenie;0]);
 [t,N*x(:,1),x(:,3)]
+

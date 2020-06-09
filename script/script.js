@@ -124,8 +124,7 @@ function sendRequest(apiHost, callType, apiFunctionName, apiFunctionParams) {
     });
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
+
 function ballGraph(apiResponse){
     var graphData = apiResponse;
     var trace1 = {
@@ -144,8 +143,6 @@ function ballGraph(apiResponse){
     Plotly.newPlot('graph_div', data);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function pendulumGraph(apiResponse){
     var graphData = apiResponse;
     var trace1 = {
@@ -164,14 +161,33 @@ function pendulumGraph(apiResponse){
     Plotly.newPlot('graph_div', data);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function ballAnimation(apiResponse) {
+    var coordinates = apiResponse;
+    coordinates.data1.forEach((el,index) => {
+        coordinates.data1[index] = el;
+    });
+    coordinates.data2.forEach((el,index) => {
+        coordinates.data2[index] =  el  * (180/3.14) * 10;
+    });
+
+    let animationBall = anime({
+        targets: '#balll',
+        translateX: coordinates.data1,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 13000,
+    });
+
+    let animationBeam = anime({
+        targets: '#beam',
+        rotate: coordinates.data2,
+        direction: 'linear',
+        easing: 'easeInOutQuad',
+        duration: 13000,
+    });
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////DOPLNIT FUNKCIU//////////////////////////////////////////////////////
 function pendulumAnimation(apiResponse){
     var coordinates = apiResponse;
     coordinates.data1.forEach((el,index) => {
@@ -197,22 +213,20 @@ function pendulumAnimation(apiResponse){
     });
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////DOPLNIT PODMIENKY//////////////////////////////////////////////////////
 
 function validParam(model,param) {
     if (model === 'suspension' && (param >= -0.4 && param <= 0.4)) {
         return true;
     } if (model === 'airplane' && (param >= -1.0 && param <= 1.0)) {
         return true;
-    } if (model === 'ball' && (param)) {
+    } if (model === 'ball' && (param >= -90 && param <= 110)) {
         return true;
     } if (model === 'pendulum' && (param >= -1 && param <= 1)) {
         return true;
     }
     $("#input_tooltip").show("slow");
     setTimeout(function(){
-        $('#input_tooltip').hide("slow");// or fade, css display however you'd like.
+        $('#input_tooltip').hide("slow");
     }, 5000);
     return false;
 }
