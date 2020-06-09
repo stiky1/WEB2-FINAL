@@ -34,7 +34,7 @@
         "lang_uloha" => "Languages",
         "page_design_uloha" => "WEB design",
         "stat_design_uloha" => "Statistics design",
-        "console_uloha" => "Console page",
+        "console_uloha" => "Console page, logs",
         "csv_uloha" => "CSV/PDF export",
         "api_uloha" => "API page",
         "mail_uloha" => "Send statistics to e-mail",

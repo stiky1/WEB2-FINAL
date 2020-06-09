@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="../style/style.css">
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+
     </head>
     
     <body class="w3-light-grey">
@@ -88,7 +90,10 @@
                     <br><br>
                 </div>
 
-                <div id="model_div"></div>
+                <div id="model_div">
+                    <div id = "stick"></div>
+                    <div id = "wheelbarrow"></div>
+                </div>
 
                 <div id="graph_info_div">
                     <p id="tr1"><?php echo $lang['pendulum_graph_tr1']?></p>

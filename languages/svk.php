@@ -34,7 +34,7 @@
         "lang_uloha" => "Jazyky",
         "page_design_uloha" => "Dizajn stránky",
         "stat_design_uloha" => "Dizajn štatistiky",
-        "console_uloha" => "Stránka konzola",
+        "console_uloha" => "Stránka konzola, logy",
         "csv_uloha" => "CSV/PDF exportovanie",
         "api_uloha" => "Stránka API",
         "mail_uloha" => "Odosielanie štatistiky na mail",

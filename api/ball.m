@@ -15,9 +15,8 @@ N = -inv(C*inv(A-B*K)*B);
 sys = ss(A-B*K,B,C,D);
 
 t = 0:0.01:5;
-
 initRychlost=0;
 initZrychlenie=0;
 [y,t,x]=lsim(N*sys,r*ones(size(t)),t,[initRychlost;0;initZrychlenie;0]);
+[t,N*x(:,1),x(:,3)]
 
-[t, N*x(:,1), x(:,3)]
